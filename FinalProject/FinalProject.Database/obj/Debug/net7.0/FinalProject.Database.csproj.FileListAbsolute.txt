@@ -1,0 +1,14 @@
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.Database\obj\Debug\net7.0\FinalProject.Database.csproj.AssemblyReference.cache
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.Database\obj\Debug\net7.0\FinalProject.Database.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.Database\obj\Debug\net7.0\FinalProject.Database.AssemblyInfoInputs.cache
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.Database\obj\Debug\net7.0\FinalProject.Database.AssemblyInfo.cs
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.Database\obj\Debug\net7.0\FinalProject.Database.csproj.CoreCompileInputs.cache
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.Database\bin\Debug\net7.0\FinalProject.Database.deps.json
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.Database\bin\Debug\net7.0\FinalProject.Database.runtimeconfig.json
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.Database\bin\Debug\net7.0\FinalProject.Database.dll
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.Database\bin\Debug\net7.0\FinalProject.Database.pdb
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.Database\obj\Debug\net7.0\FinalProject.Database.dll
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.Database\obj\Debug\net7.0\refint\FinalProject.Database.dll
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.Database\obj\Debug\net7.0\FinalProject.Database.pdb
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.Database\obj\Debug\net7.0\FinalProject.Database.genruntimeconfig.cache
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.Database\obj\Debug\net7.0\ref\FinalProject.Database.dll

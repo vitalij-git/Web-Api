@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/address.css">
+</head>
+<body >
+    <div class="main">
+        <div class="user-status" id="user-status-block">
+
+        </div>
+        <nav>
+            <ul class="nav nav-underline">
+                <li class="nav-item">
+                  <a class="nav-link "  href="./home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link"  href="./personalInformation.html">Personal Information</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Address</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="./information.html">Information</a>
+                  </li>
+              </ul>
+        </nav>
+        <div class="container mt-5 address-container">
+            <form id="adress-form">
+                <div class="form-group">
+                    <label for="city">City:</label>
+                    <input type="text" class="form-control" id="city" name="city" placeholder="Enter your city">
+                </div>
+                <div class="form-group">
+                    <label for="street">Street:</label>
+                    <input type="text" class="form-control" id="street" name="street" placeholder="Enter your street">
+                </div>
+                <div class="form-group">
+                    <label for="apartmentNumber">Apartment Number:</label>
+                    <input type="text" class="form-control" id="apartmentNumber" name="apartmentNumber" placeholder="Enter your apartment number">
+                </div>
+                <div class="form-group">
+                    <label for="buildingNumber">Building Number:</label>
+                    <input type="text" class="form-control" id="buildingNumber" name="buildingNumber" placeholder="Enter your building number">
+                </div>
+                <button type="submit" id="address-submit-btn" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="modal" id="myModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-header"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="modal-message">
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+    </div>
+    
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/address.js"></script>
+</body>
+</html>

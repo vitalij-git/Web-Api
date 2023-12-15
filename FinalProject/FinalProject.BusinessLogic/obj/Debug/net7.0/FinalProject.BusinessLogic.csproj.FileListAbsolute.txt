@@ -1,0 +1,15 @@
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.BusinessLogic\obj\Debug\net7.0\FinalProject.BusinessLogic.csproj.AssemblyReference.cache
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.BusinessLogic\obj\Debug\net7.0\FinalProject.BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.BusinessLogic\obj\Debug\net7.0\FinalProject.BusinessLogic.AssemblyInfoInputs.cache
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.BusinessLogic\obj\Debug\net7.0\FinalProject.BusinessLogic.AssemblyInfo.cs
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.BusinessLogic\obj\Debug\net7.0\FinalProject.BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.BusinessLogic\bin\Debug\net7.0\FinalProject.BusinessLogic.deps.json
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.BusinessLogic\bin\Debug\net7.0\FinalProject.BusinessLogic.dll
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.BusinessLogic\bin\Debug\net7.0\FinalProject.BusinessLogic.pdb
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.BusinessLogic\bin\Debug\net7.0\FinalProject.Database.dll
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.BusinessLogic\bin\Debug\net7.0\FinalProject.Database.pdb
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.BusinessLogic\obj\Debug\net7.0\FinalProject.BusinessLogic.csproj.CopyComplete
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.BusinessLogic\obj\Debug\net7.0\FinalProject.BusinessLogic.dll
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.BusinessLogic\obj\Debug\net7.0\refint\FinalProject.BusinessLogic.dll
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.BusinessLogic\obj\Debug\net7.0\FinalProject.BusinessLogic.pdb
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\FinalProject.BusinessLogic\obj\Debug\net7.0\ref\FinalProject.BusinessLogic.dll

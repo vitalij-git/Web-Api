@@ -1,0 +1,23 @@
+body{
+    max-width: 1024px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.main{
+    margin: 0 3%;
+}
+.user-status{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+}
+.user-status p{
+    margin: 0;
+}
+
+.logout-block{
+    margin-top: 10px;
+    display: flex;
+    justify-content: right;
+}
