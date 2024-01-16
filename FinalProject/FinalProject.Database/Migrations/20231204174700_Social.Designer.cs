@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject.Database.Migrations
 {
     [DbContext(typeof(DbContextService))]
-    [Migration("20231206170628_Social")]
+    [Migration("20231204174700_Social")]
     partial class Social
     {
         /// <inheritdoc />
