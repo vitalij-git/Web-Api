@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\XUnitTests\\XUnitTests.csproj": {}
+    "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\XUnitTests\\XUnitTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.BusinessLogic\\FinalProject.BusinessLogic.csproj": {
+    "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.BusinessLogic\\FinalProject.BusinessLogic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.BusinessLogic\\FinalProject.BusinessLogic.csproj",
+        "projectUniqueName": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.BusinessLogic\\FinalProject.BusinessLogic.csproj",
         "projectName": "FinalProject.BusinessLogic",
-        "projectPath": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.BusinessLogic\\FinalProject.BusinessLogic.csproj",
+        "projectPath": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.BusinessLogic\\FinalProject.BusinessLogic.csproj",
         "packagesPath": "C:\\Users\\Vitalis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.BusinessLogic\\obj\\",
+        "outputPath": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.BusinessLogic\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj": {
-                "projectPath": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj"
+              "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj": {
+                "projectPath": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj"
               }
             }
           }
@@ -77,14 +77,14 @@
         }
       }
     },
-    "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj": {
+    "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj",
+        "projectUniqueName": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj",
         "projectName": "FinalProject.Database",
-        "projectPath": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj",
+        "projectPath": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj",
         "packagesPath": "C:\\Users\\Vitalis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.Database\\obj\\",
+        "outputPath": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.Database\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -152,14 +152,14 @@
         }
       }
     },
-    "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject\\FinalProject.csproj": {
+    "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject\\FinalProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject\\FinalProject.csproj",
+        "projectUniqueName": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject\\FinalProject.csproj",
         "projectName": "FinalProject",
-        "projectPath": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject\\FinalProject.csproj",
+        "projectPath": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject\\FinalProject.csproj",
         "packagesPath": "C:\\Users\\Vitalis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject\\obj\\",
+        "outputPath": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -181,11 +181,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.BusinessLogic\\FinalProject.BusinessLogic.csproj": {
-                "projectPath": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.BusinessLogic\\FinalProject.BusinessLogic.csproj"
+              "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.BusinessLogic\\FinalProject.BusinessLogic.csproj": {
+                "projectPath": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.BusinessLogic\\FinalProject.BusinessLogic.csproj"
               },
-              "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj": {
-                "projectPath": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj"
+              "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj": {
+                "projectPath": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj"
               }
             }
           }
@@ -246,14 +246,14 @@
         }
       }
     },
-    "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\XUnitTests\\XUnitTests.csproj": {
+    "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\XUnitTests\\XUnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\XUnitTests\\XUnitTests.csproj",
+        "projectUniqueName": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\XUnitTests\\XUnitTests.csproj",
         "projectName": "XUnitTests",
-        "projectPath": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\XUnitTests\\XUnitTests.csproj",
+        "projectPath": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\XUnitTests\\XUnitTests.csproj",
         "packagesPath": "C:\\Users\\Vitalis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\XUnitTests\\obj\\",
+        "outputPath": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\XUnitTests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -274,14 +274,14 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.BusinessLogic\\FinalProject.BusinessLogic.csproj": {
-                "projectPath": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.BusinessLogic\\FinalProject.BusinessLogic.csproj"
+              "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.BusinessLogic\\FinalProject.BusinessLogic.csproj": {
+                "projectPath": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.BusinessLogic\\FinalProject.BusinessLogic.csproj"
               },
-              "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj": {
-                "projectPath": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj"
+              "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj": {
+                "projectPath": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj"
               },
-              "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject\\FinalProject.csproj": {
-                "projectPath": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject\\FinalProject.csproj"
+              "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject\\FinalProject.csproj": {
+                "projectPath": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject\\FinalProject.csproj"
               }
             }
           }

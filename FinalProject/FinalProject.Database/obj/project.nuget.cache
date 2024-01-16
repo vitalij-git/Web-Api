@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FNkDvZOUjjhmbjS2LPChpqmftq4jzvfIS5D9AbgzIGE290VQnK2cVaQ3pWOVs0AOsng2kUdOGpI5OHYtYey8KA==",
+  "dgSpecHash": "9cwZnpsMGHlyKrauUTEMVY+rr8/y2hvg/dm2B3T2K1OymltYPSP7gIqUqjzX/1MwJQ7tcLHixjalHl+5fsVxpw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj",
+  "projectFilePath": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vitalis\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Vitalis\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

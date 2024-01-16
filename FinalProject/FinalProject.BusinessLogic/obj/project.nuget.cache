@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Qu+58l8TKnPapB58t5/mEkDpHjs5WN2Ch7GZP6Fi8ABMk+W/a2BTxQRrGmW6JwoVH8evrHXw5nBEb2aBQNY1jA==",
+  "dgSpecHash": "as+IcptFMb9Gj5C/2yReFl6k/7s1oUMQPLb0/KyCl2Ti6BZdAVI0k3KP8ZFe0fnbzS8lpOm+UL2ljwa7sg7pGQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.BusinessLogic\\FinalProject.BusinessLogic.csproj",
+  "projectFilePath": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.BusinessLogic\\FinalProject.BusinessLogic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vitalis\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Vitalis\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

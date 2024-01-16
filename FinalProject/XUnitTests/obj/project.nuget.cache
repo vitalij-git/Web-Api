@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FLIzOeZ1DrCe22HUEay+nNSqAlQ2TMH50LRc2MKDGcx5dz8VFLaZkCDrOE9C56V709ZbuxYF3J1rHSpDrGT1Eg==",
+  "dgSpecHash": "Q9Gpmh2GKe/+0oejsM5aqzwFngieyYaPjEcMFQLKn8hlcQFst/ZqKoDKr4qaG+dtpkTd91xRMqmWJa5NyS8XGg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\XUnitTests\\XUnitTests.csproj",
+  "projectFilePath": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\XUnitTests\\XUnitTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vitalis\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Vitalis\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

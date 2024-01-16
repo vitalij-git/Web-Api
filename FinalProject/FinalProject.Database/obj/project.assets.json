@@ -2891,11 +2891,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj",
+      "projectUniqueName": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj",
       "projectName": "FinalProject.Database",
-      "projectPath": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj",
+      "projectPath": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.Database\\FinalProject.Database.csproj",
       "packagesPath": "C:\\Users\\Vitalis\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.Database\\obj\\",
+      "outputPath": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.Database\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

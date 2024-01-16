@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.FrontEnd\\FinalProject.FrontEnd.csproj": {}
+    "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.FrontEnd\\FinalProject.FrontEnd.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.FrontEnd\\FinalProject.FrontEnd.csproj": {
+    "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.FrontEnd\\FinalProject.FrontEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.FrontEnd\\FinalProject.FrontEnd.csproj",
+        "projectUniqueName": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.FrontEnd\\FinalProject.FrontEnd.csproj",
         "projectName": "FinalProject.FrontEnd",
-        "projectPath": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.FrontEnd\\FinalProject.FrontEnd.csproj",
+        "projectPath": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.FrontEnd\\FinalProject.FrontEnd.csproj",
         "packagesPath": "C:\\Users\\Vitalis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vitalis\\Desktop\\ApiProjects\\FinalProject\\FinalProject.FrontEnd\\obj\\",
+        "outputPath": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\FinalProject\\FinalProject.FrontEnd\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
