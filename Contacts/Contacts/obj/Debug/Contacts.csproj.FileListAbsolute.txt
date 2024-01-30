@@ -1,0 +1,12 @@
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\Contacts\Contacts\bin\Debug\Contacts.exe.config
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\Contacts\Contacts\bin\Debug\Contacts.exe
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\Contacts\Contacts\bin\Debug\Contacts.pdb
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\Contacts\Contacts\obj\Debug\Contacts.csproj.AssemblyReference.cache
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\Contacts\Contacts\obj\Debug\Contacts.csproj.SuggestedBindingRedirects.cache
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\Contacts\Contacts\obj\Debug\Contacts.AddAndEditContacts.resources
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\Contacts\Contacts\obj\Debug\Contacts.Main.resources
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\Contacts\Contacts\obj\Debug\Contacts.Properties.Resources.resources
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\Contacts\Contacts\obj\Debug\Contacts.csproj.GenerateResource.cache
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\Contacts\Contacts\obj\Debug\Contacts.csproj.CoreCompileInputs.cache
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\Contacts\Contacts\obj\Debug\Contacts.exe
+C:\Users\Vitalis\Desktop\Web Api\FinalProject\Contacts\Contacts\obj\Debug\Contacts.pdb
