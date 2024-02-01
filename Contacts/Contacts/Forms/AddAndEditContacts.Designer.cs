@@ -33,15 +33,15 @@
             this.Birthdate = new System.Windows.Forms.Label();
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.TelNubmerTextBox = new System.Windows.Forms.TextBox();
-            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.OkButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
+            this.BirthdateTexBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // FullName
             // 
             this.FullName.AutoSize = true;
-            this.FullName.Location = new System.Drawing.Point(48, 77);
+            this.FullName.Location = new System.Drawing.Point(6, 11);
             this.FullName.Name = "FullName";
             this.FullName.Size = new System.Drawing.Size(52, 13);
             this.FullName.TabIndex = 0;
@@ -50,7 +50,7 @@
             // TelNumber
             // 
             this.TelNumber.AutoSize = true;
-            this.TelNumber.Location = new System.Drawing.Point(48, 118);
+            this.TelNumber.Location = new System.Drawing.Point(6, 40);
             this.TelNumber.Name = "TelNumber";
             this.TelNumber.Size = new System.Drawing.Size(65, 13);
             this.TelNumber.TabIndex = 1;
@@ -59,7 +59,7 @@
             // Birthdate
             // 
             this.Birthdate.AutoSize = true;
-            this.Birthdate.Location = new System.Drawing.Point(48, 155);
+            this.Birthdate.Location = new System.Drawing.Point(6, 63);
             this.Birthdate.Name = "Birthdate";
             this.Birthdate.Size = new System.Drawing.Size(49, 13);
             this.Birthdate.TabIndex = 2;
@@ -67,28 +67,21 @@
             // 
             // FullNameTextBox
             // 
-            this.FullNameTextBox.Location = new System.Drawing.Point(137, 77);
+            this.FullNameTextBox.Location = new System.Drawing.Point(95, 11);
             this.FullNameTextBox.Name = "FullNameTextBox";
             this.FullNameTextBox.Size = new System.Drawing.Size(200, 20);
             this.FullNameTextBox.TabIndex = 3;
             // 
             // TelNubmerTextBox
             // 
-            this.TelNubmerTextBox.Location = new System.Drawing.Point(137, 115);
+            this.TelNubmerTextBox.Location = new System.Drawing.Point(95, 37);
             this.TelNubmerTextBox.Name = "TelNubmerTextBox";
             this.TelNubmerTextBox.Size = new System.Drawing.Size(200, 20);
             this.TelNubmerTextBox.TabIndex = 4;
             // 
-            // dateTimePicker
-            // 
-            this.dateTimePicker.Location = new System.Drawing.Point(137, 155);
-            this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker.TabIndex = 5;
-            // 
             // OkButton
             // 
-            this.OkButton.Location = new System.Drawing.Point(70, 244);
+            this.OkButton.Location = new System.Drawing.Point(139, 89);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(75, 23);
             this.OkButton.TabIndex = 6;
@@ -98,7 +91,7 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(187, 244);
+            this.CancelButton.Location = new System.Drawing.Point(220, 89);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
             this.CancelButton.TabIndex = 7;
@@ -106,14 +99,21 @@
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
+            // BirthdateTexBox
+            // 
+            this.BirthdateTexBox.Location = new System.Drawing.Point(95, 63);
+            this.BirthdateTexBox.Name = "BirthdateTexBox";
+            this.BirthdateTexBox.Size = new System.Drawing.Size(200, 20);
+            this.BirthdateTexBox.TabIndex = 8;
+            // 
             // AddAndEditContacts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(393, 334);
+            this.ClientSize = new System.Drawing.Size(312, 130);
+            this.Controls.Add(this.BirthdateTexBox);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.OkButton);
-            this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.TelNubmerTextBox);
             this.Controls.Add(this.FullNameTextBox);
             this.Controls.Add(this.Birthdate);
@@ -134,8 +134,8 @@
         private System.Windows.Forms.Label Birthdate;
         private System.Windows.Forms.TextBox FullNameTextBox;
         private System.Windows.Forms.TextBox TelNubmerTextBox;
-        private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Button OkButton;
         private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.TextBox BirthdateTexBox;
     }
 }

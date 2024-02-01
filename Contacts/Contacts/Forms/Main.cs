@@ -15,6 +15,8 @@ namespace Contacts
 {
     public partial class Main : Form
     {
+        private Contact Contact = new Contact();
+        private int RowIndex;
         public Main()
         {
             InitializeComponent();
@@ -23,36 +25,31 @@ namespace Contacts
         private void Add_Click(object sender, EventArgs e)
         {
             AddAndEditContacts addAndEditContacts = new AddAndEditContacts();
-            this.Hide();
             addAndEditContacts.Show();
-        }
-
-
-        private void ContactListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Edit.Enabled = ContactListBox.SelectedItem != null;
-            Delete.Enabled = ContactListBox.SelectedItem != null;
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
-            ContactsOutput();
+             ContactsOutput();
         }
 
         private void ContactsOutput()
         {
             var contactsBook = GetContactsFromDatabase();
+            var id = 1;
 
             foreach (var contacts in contactsBook)
             {
                 int contactId = contacts.Key;
                 foreach(var contact in contacts.Value)
                 {
-                    ContactListBox.Items.Add(contact); 
+                    ContactsDataGridView.Rows.Add(id, contact.FullName, contact.TelNumber, contact.Birthdate, contact.Id);
+                    id++;
                 }
             }
-            ContactListBox.DisplayMember = "ToString";
+            
         }
+
         private Dictionary<int, List<Contact>> GetContactsFromDatabase()
         {
             Dictionary<int, List<Contact>> contactsBook = new Dictionary<int, List<Contact>>();
@@ -75,8 +72,6 @@ namespace Contacts
                             FullName = reader["FullName"].ToString(),
                             TelNumber = (int)reader["PhoneNumber"],
                             Birthdate = formatBirthData,
-                            ListNumber = id
-
 
                         };
                         if (!contactsBook.ContainsKey(contact.Id))
@@ -94,42 +89,61 @@ namespace Contacts
 
         private void Edit_Click(object sender, EventArgs e)
         {
-            if (ContactListBox.SelectedItem != null)
+            if(RowIndex >= 0)
             {
-                Contact selectedContact = (Contact)ContactListBox.SelectedItem;
                 AddAndEditContacts addAndEditContacts = new AddAndEditContacts();
-                addAndEditContacts.SelectedContact = selectedContact;
-                this.Hide();
+                addAndEditContacts.SelectedContact = Contact;
                 addAndEditContacts.Show();
             }
+           
         }
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            if (ContactListBox.SelectedItem != null)
+           
+            if (RowIndex >= 0)
             {
-                Contact selectedContact = (Contact)ContactListBox.SelectedItem;
                 DatabaseConnection databaseConnection = new DatabaseConnection();
                 using (var connection = databaseConnection.OpenConnection())
                 {
                     SqlCommand sqlCommand = new SqlCommand("spContact_Delete", connection);
-                    sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@ContactId", selectedContact.Id);
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@ContactId", Contact.Id);
                     sqlCommand.ExecuteNonQuery();
                     MessageBox.Show("Contact deleted successfully");
-                    
+
                 }
-                var updatedContacts = GetContactsFromDatabase();
-                ContactListBox.Items.Clear();
-                foreach (var contacts in updatedContacts)
+
+                ContactsDataGridView.Rows.Clear();
+                var contactsBook = GetContactsFromDatabase();
+                var id = 1;
+
+                foreach (var contacts in contactsBook)
                 {
                     int contactId = contacts.Key;
                     foreach (var contact in contacts.Value)
                     {
-                        ContactListBox.Items.Add(contact);
+                        ContactsDataGridView.Rows.Add(id, contact.FullName, contact.TelNumber, contact.Birthdate, contact.Id);
+                        id++;
                     }
                 }
             }
         }
+
+        private void ContactsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            RowIndex = e.RowIndex;
+            if (RowIndex != -1)
+            {
+                DataGridViewRow dvgRow = ContactsDataGridView.Rows[RowIndex];
+                Contact.FullName = dvgRow.Cells[1].Value.ToString();
+                Contact.TelNumber = (int)dvgRow.Cells[2].Value;
+                Contact.Birthdate = dvgRow.Cells[3].Value.ToString();
+                Contact.Id = (int)dvgRow.Cells[4].Value;
+            }
+            
+        }
+
+
     }
 }

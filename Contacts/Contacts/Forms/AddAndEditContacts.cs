@@ -24,9 +24,7 @@ namespace Contacts
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            Main main = new Main();
-            this.Hide();
-            main.Show();
+            this.Close();
         }
 
         private void OkButton_Click(object sender, EventArgs e)
@@ -51,6 +49,8 @@ namespace Contacts
             {
                 AddContact();
             }
+
+            this.Close();
         }
 
         private bool IsCorrectFullName(string fullName)
@@ -65,10 +65,7 @@ namespace Contacts
             {
                 FullNameTextBox.Text = SelectedContact.FullName;
                 TelNubmerTextBox.Text = SelectedContact.TelNumber.ToString();
-                if(DateTime.TryParse(SelectedContact.Birthdate, out DateTime date))
-                {
-                    dateTimePicker.Value = date;
-                }
+                BirthdateTexBox.Text = SelectedContact.Birthdate.ToString();
             }
         }
 
@@ -80,14 +77,11 @@ namespace Contacts
                 SqlCommand sqlCommand = new SqlCommand("spContact_Add", connection);
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.AddWithValue("@FullName", FullNameTextBox.Text);
-                sqlCommand.Parameters.AddWithValue("@TelNumber", TelNubmerTextBox.Text);
-                sqlCommand.Parameters.AddWithValue("@Birthdate", dateTimePicker.Value);
+                sqlCommand.Parameters.AddWithValue("@PhoneNumber", TelNubmerTextBox.Text);
+                sqlCommand.Parameters.AddWithValue("@Birthdate", BirthdateTexBox.Text);
 
                 sqlCommand.ExecuteNonQuery();
                 MessageBox.Show("Contact added successfully");
-                Main main = new Main();
-                this.Hide();
-                main.Show();
             }
         }
 
@@ -100,14 +94,11 @@ namespace Contacts
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.AddWithValue("@ContactId", SelectedContact.Id);
                 sqlCommand.Parameters.AddWithValue("@FullName", FullNameTextBox.Text);
-                sqlCommand.Parameters.AddWithValue("@TelNumber", TelNubmerTextBox.Text);
-                sqlCommand.Parameters.AddWithValue("@Birthdate", dateTimePicker.Value);
+                sqlCommand.Parameters.AddWithValue("@PhoneNumber", TelNubmerTextBox.Text);
+                sqlCommand.Parameters.AddWithValue("@Birthdate", BirthdateTexBox.Text);
 
                 sqlCommand.ExecuteNonQuery();
                 MessageBox.Show("Contact updated successfully");
-                Main main = new Main();
-                this.Hide();
-                main.Show();
             }
         }
     }

@@ -31,14 +31,20 @@
             this.Add = new System.Windows.Forms.Button();
             this.Edit = new System.Windows.Forms.Button();
             this.Delete = new System.Windows.Forms.Button();
-            this.ContactListBox = new System.Windows.Forms.ListBox();
             this.panel = new System.Windows.Forms.Panel();
+            this.ContactsDataGridView = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TelNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Birthdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContactId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ContactsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // Add
             // 
-            this.Add.Location = new System.Drawing.Point(80, 313);
+            this.Add.Location = new System.Drawing.Point(141, 266);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(101, 30);
             this.Add.TabIndex = 1;
@@ -48,7 +54,7 @@
             // 
             // Edit
             // 
-            this.Edit.Location = new System.Drawing.Point(211, 313);
+            this.Edit.Location = new System.Drawing.Point(248, 266);
             this.Edit.Name = "Edit";
             this.Edit.Size = new System.Drawing.Size(101, 30);
             this.Edit.TabIndex = 2;
@@ -58,7 +64,7 @@
             // 
             // Delete
             // 
-            this.Delete.Location = new System.Drawing.Point(341, 313);
+            this.Delete.Location = new System.Drawing.Point(355, 266);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(101, 30);
             this.Delete.TabIndex = 3;
@@ -66,29 +72,63 @@
             this.Delete.UseVisualStyleBackColor = true;
             this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
-            // ContactListBox
-            // 
-            this.ContactListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ContactListBox.FormattingEnabled = true;
-            this.ContactListBox.ItemHeight = 16;
-            this.ContactListBox.Location = new System.Drawing.Point(3, 3);
-            this.ContactListBox.Name = "ContactListBox";
-            this.ContactListBox.Size = new System.Drawing.Size(569, 244);
-            this.ContactListBox.TabIndex = 43;
-            // 
             // panel
             // 
-            this.panel.Controls.Add(this.ContactListBox);
-            this.panel.Location = new System.Drawing.Point(56, 35);
+            this.panel.Controls.Add(this.ContactsDataGridView);
+            this.panel.Location = new System.Drawing.Point(12, 12);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(572, 248);
+            this.panel.Size = new System.Drawing.Size(444, 221);
             this.panel.TabIndex = 43;
+            // 
+            // ContactsDataGridView
+            // 
+            this.ContactsDataGridView.AllowUserToAddRows = false;
+            this.ContactsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ContactsDataGridView.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.ContactsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ContactsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.FullName,
+            this.TelNumber,
+            this.Birthdate,
+            this.ContactId});
+            this.ContactsDataGridView.Location = new System.Drawing.Point(3, 0);
+            this.ContactsDataGridView.Name = "ContactsDataGridView";
+            this.ContactsDataGridView.Size = new System.Drawing.Size(441, 219);
+            this.ContactsDataGridView.TabIndex = 0;
+            this.ContactsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ContactsDataGridView_CellClick);
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            // 
+            // FullName
+            // 
+            this.FullName.HeaderText = "Full name";
+            this.FullName.Name = "FullName";
+            // 
+            // TelNumber
+            // 
+            this.TelNumber.HeaderText = "Tel. number";
+            this.TelNumber.Name = "TelNumber";
+            // 
+            // Birthdate
+            // 
+            this.Birthdate.HeaderText = "Birthdate";
+            this.Birthdate.Name = "Birthdate";
+            // 
+            // ContactId
+            // 
+            this.ContactId.HeaderText = "ContactId";
+            this.ContactId.Name = "ContactId";
+            this.ContactId.Visible = false;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(693, 383);
+            this.ClientSize = new System.Drawing.Size(471, 308);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.Delete);
             this.Controls.Add(this.Edit);
@@ -97,6 +137,7 @@
             this.Text = "Main";
             this.Load += new System.EventHandler(this.Main_Load);
             this.panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ContactsDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -105,7 +146,12 @@
         private System.Windows.Forms.Button Add;
         private System.Windows.Forms.Button Edit;
         private System.Windows.Forms.Button Delete;
-        private System.Windows.Forms.ListBox ContactListBox;
         private System.Windows.Forms.Panel panel;
+        private System.Windows.Forms.DataGridView ContactsDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TelNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Birthdate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ContactId;
     }
 }
