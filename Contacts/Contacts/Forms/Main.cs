@@ -103,30 +103,9 @@ namespace Contacts
            
             if (RowIndex >= 0)
             {
-                DatabaseConnection databaseConnection = new DatabaseConnection();
-                using (var connection = databaseConnection.OpenConnection())
-                {
-                    SqlCommand sqlCommand = new SqlCommand("spContact_Delete", connection);
-                    sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@ContactId", Contact.Id);
-                    sqlCommand.ExecuteNonQuery();
-                    MessageBox.Show("Contact deleted successfully");
-
-                }
-
-                ContactsDataGridView.Rows.Clear();
-                var contactsBook = GetContactsFromDatabase();
-                var id = 1;
-
-                foreach (var contacts in contactsBook)
-                {
-                    int contactId = contacts.Key;
-                    foreach (var contact in contacts.Value)
-                    {
-                        ContactsDataGridView.Rows.Add(id, contact.FullName, contact.TelNumber, contact.Birthdate, contact.Id);
-                        id++;
-                    }
-                }
+                DeleteContactFromDatabase();
+                DataGridViewRefresh();
+                
             }
         }
 
@@ -144,6 +123,36 @@ namespace Contacts
             
         }
 
+        public void DataGridViewRefresh()
+        {
+            ContactsDataGridView.Rows.Clear();
+            var contactsBook = GetContactsFromDatabase();
+            var id = 1;
+
+            foreach (var contacts in contactsBook)
+            {
+                int contactId = contacts.Key;
+                foreach (var contact in contacts.Value)
+                {
+                    ContactsDataGridView.Rows.Add(id, contact.FullName, contact.TelNumber, contact.Birthdate, contact.Id);
+                    id++;
+                }
+            }
+        }
+
+        private void DeleteContactFromDatabase()
+        {
+            DatabaseConnection databaseConnection = new DatabaseConnection();
+            using (var connection = databaseConnection.OpenConnection())
+            {
+                SqlCommand sqlCommand = new SqlCommand("spContact_Delete", connection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@ContactId", Contact.Id);
+                sqlCommand.ExecuteNonQuery();
+                MessageBox.Show("Contact deleted successfully");
+
+            }
+        }
 
     }
 }

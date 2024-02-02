@@ -37,27 +37,29 @@ namespace Contacts
             {
                 MessageBox.Show("The provided telephone number is not valid. Please enter a valid telephone number.");
             }
-            else if(IsCorrectFullName(FullNameTextBox.Text) != true)
+            else if(FullNameTextBox.Text.Any(char.IsDigit) == true)
             {
-                MessageBox.Show("Please enter a valid full name");
+                MessageBox.Show("Valid full name without any digit.");
             }
             else if(SelectedContact != null)
             {
                 UpdateContact();
+                Main main = new Main();
+                main.DataGridViewRefresh();
+                this.Close();
             }
             else
             {
                 AddContact();
+                Main main = new Main();
+                main.DataGridViewRefresh();
+                this.Close();
             }
 
-            this.Close();
+            
         }
 
-        private bool IsCorrectFullName(string fullName)
-        {
-            return Regex.IsMatch(fullName, @"^[A-Za-z\s]*$");
-        }
-     
+
 
         private void AddAndEditContacts_Load(object sender, EventArgs e)
         {
