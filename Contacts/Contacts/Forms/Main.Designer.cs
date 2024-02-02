@@ -44,7 +44,7 @@
             // 
             // Add
             // 
-            this.Add.Location = new System.Drawing.Point(141, 266);
+            this.Add.Location = new System.Drawing.Point(141, 239);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(101, 30);
             this.Add.TabIndex = 1;
@@ -54,7 +54,7 @@
             // 
             // Edit
             // 
-            this.Edit.Location = new System.Drawing.Point(248, 266);
+            this.Edit.Location = new System.Drawing.Point(248, 239);
             this.Edit.Name = "Edit";
             this.Edit.Size = new System.Drawing.Size(101, 30);
             this.Edit.TabIndex = 2;
@@ -64,7 +64,7 @@
             // 
             // Delete
             // 
-            this.Delete.Location = new System.Drawing.Point(355, 266);
+            this.Delete.Location = new System.Drawing.Point(352, 239);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(101, 30);
             this.Delete.TabIndex = 3;
@@ -83,6 +83,7 @@
             // ContactsDataGridView
             // 
             this.ContactsDataGridView.AllowUserToAddRows = false;
+            this.ContactsDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ContactsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ContactsDataGridView.BackgroundColor = System.Drawing.SystemColors.Window;
             this.ContactsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -92,7 +93,7 @@
             this.TelNumber,
             this.Birthdate,
             this.ContactId});
-            this.ContactsDataGridView.Location = new System.Drawing.Point(3, 0);
+            this.ContactsDataGridView.Location = new System.Drawing.Point(0, 0);
             this.ContactsDataGridView.Name = "ContactsDataGridView";
             this.ContactsDataGridView.Size = new System.Drawing.Size(441, 219);
             this.ContactsDataGridView.TabIndex = 0;
@@ -128,7 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 308);
+            this.ClientSize = new System.Drawing.Size(473, 279);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.Delete);
             this.Controls.Add(this.Edit);

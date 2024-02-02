@@ -89,7 +89,7 @@ namespace Contacts
 
         private void Edit_Click(object sender, EventArgs e)
         {
-            if(RowIndex >= 0)
+            if(RowIndex != -1)
             {
                 AddAndEditContacts addAndEditContacts = new AddAndEditContacts();
                 addAndEditContacts.SelectedContact = Contact;
@@ -101,7 +101,7 @@ namespace Contacts
         private void Delete_Click(object sender, EventArgs e)
         {
            
-            if (RowIndex >= 0)
+            if (RowIndex != -1)
             {
                 DeleteContactFromDatabase();
                 DataGridViewRefresh();

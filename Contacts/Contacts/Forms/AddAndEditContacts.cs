@@ -17,6 +17,7 @@ namespace Contacts
     public partial class AddAndEditContacts : Form
     {
         public Contact SelectedContact { get; set; }
+        private Main Main = new Main();
         public AddAndEditContacts()
         {
             InitializeComponent();
@@ -44,16 +45,15 @@ namespace Contacts
             else if(SelectedContact != null)
             {
                 UpdateContact();
-                Main main = new Main();
-                main.DataGridViewRefresh();
                 this.Close();
+                Main.DataGridViewRefresh();
+                
             }
             else
             {
                 AddContact();
-                Main main = new Main();
-                main.DataGridViewRefresh();
                 this.Close();
+                Main.DataGridViewRefresh();
             }
 
             
