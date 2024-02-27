@@ -1,0 +1,12 @@
+.characters-container tr:nth-child(even) { 
+    background-color: Lightgray; 
+} 
+
+.characters-container td{
+    padding: 3%;
+}
+
+.characters-container{
+    max-width: 1024px;
+    margin:auto
+}
