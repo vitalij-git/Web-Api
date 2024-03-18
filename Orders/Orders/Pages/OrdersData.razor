@@ -1,0 +1,104 @@
+﻿@page "/ordersdata"
+@using System.Xml.Serialization;
+@using System.Text.Json;
+@using Orders.Models;
+@using Orders.Shared;
+@inject HttpClient HttpClient
+<link rel="stylesheet" href="css/Table.css">
+<PageTitle>Orders</PageTitle>
+
+<h1>Orders</h1>
+@code {
+    private IList<Order> OrdersList;
+    private DialogComponent _dialog;
+    private string dialogMessage = "";
+    private int _itemId;
+    private DeleteConfirmationDialog _deleteConfirmationDialog;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await HttpClient.GetAsync("https://localhost:7286/Order/Orders");
+        if (response.IsSuccessStatusCode)
+        {        
+            using (var stream = await response.Content.ReadAsStreamAsync())
+            {
+                OrdersList = await JsonSerializer.DeserializeAsync<IList<Order>>(stream);
+
+            }
+        }     
+    }
+
+    private async Task ShowDialog(string message)
+    {
+        dialogMessage = message;
+
+        _dialog.Show();
+    }
+
+    private async Task DeleteRow(int itemId)
+    {
+        _itemId = itemId;
+        _deleteConfirmationDialog.Show();
+
+    }
+
+    private async Task DeleteConfirmed(bool confirmed, int itemId)
+    {
+        if (confirmed)
+        {
+            HttpClient.DefaultRequestHeaders.Add("orderId", itemId.ToString());
+            var response = await HttpClient.DeleteAsync("https://localhost:7286/Order");
+            if (response.IsSuccessStatusCode)
+            {
+                ShowDialog("The Order was deleted");
+
+            }
+            else
+            {
+                ShowDialog("The Order is not deleted, something with response");
+            }
+
+        }
+    }
+}
+
+<DialogComponent @ref="_dialog" Title="Dialog Title">
+    <p>@dialogMessage</p>
+</DialogComponent>
+
+<DialogComponent @ref="_dialog" Title="Dialog Title">
+    <p>@dialogMessage</p>
+</DialogComponent>
+
+<DeleteConfirmationDialog @ref="_deleteConfirmationDialog"
+                          Title="Confirm Delete"
+                          Message="Are you sure you want to delete this item?"
+                          OnDeleteConfirmed="@(confirmed => DeleteConfirmed(confirmed, _itemId))">
+</DeleteConfirmationDialog>
+
+@if (OrdersList != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>State</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in OrdersList)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.State</td>
+                    <td>
+                        <button class="button-delete" @onclick="() => DeleteRow(item.Id)">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+

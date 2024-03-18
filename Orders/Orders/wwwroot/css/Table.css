@@ -1,0 +1,59 @@
+﻿body {
+    
+}
+
+
+.table
+{   max-width:720px;
+    width: 100%;
+    border-collapse: collapse;
+ 
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+.text-design td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.button-delete {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+    .button-delete:hower {
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: none;
+}
+
+
+
+
+  
+

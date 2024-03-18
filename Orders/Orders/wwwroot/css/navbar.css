@@ -1,0 +1,36 @@
+﻿body {
+}
+.navbar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    padding-top: 15px;
+}
+
+    .navbar button {
+        background-color: #444;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 10px 15px;
+        width: 100%;
+        text-align: left;
+    }
+
+.dropdown {
+    display: none;
+    padding-left: 15px;
+}
+
+    .dropdown.show {
+        display: block;
+    }
+
+.content {
+    margin-left: 250px;
+    padding-left: 15px;
+}

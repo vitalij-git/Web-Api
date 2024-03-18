@@ -1,0 +1,78 @@
+﻿@page "/createwindow"
+@using Orders.Models;
+@using System.Text.Json;
+@using System.Text;
+@using Orders.Shared;
+@inject HttpClient HttpClient
+<link rel="stylesheet" href="css/CreateForm.css">
+<h3>Create Window</h3>
+
+@code {
+
+    private string Name { get; set; }
+    private int QuantityOfWindows { get; set; }
+    private int SelectedOrderId { get; set; }
+    private List<Order> Orders { get; set; }
+    private DialogComponent _dialog;
+    private string dialogMessage = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        Orders = await HttpClient.GetFromJsonAsync<List<Order>>("https://localhost:7286/Order/Orders");
+    }
+
+    private async void NewWindow()
+    {
+        var window = new NewElement { Name = Name, QuantityOfWindows = QuantityOfWindows, OrderId = SelectedOrderId };
+        var json = JsonSerializer.Serialize(window);
+        var url = "https://localhost:7286/Window";
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+        var response = await HttpClient.PostAsync(url, content);
+        if (response.IsSuccessStatusCode)
+        {
+            ShowDialog("The Window was successfully added");
+        }
+        else
+        {
+            ShowDialog("The Window is not added, something with response");
+        }
+      
+    }
+
+    private async Task ShowDialog(string message)
+    {
+        dialogMessage = message;
+
+        _dialog.Show();
+    }
+}
+
+<DialogComponent @ref="_dialog" Title="Dialog Title">
+    <p>@dialogMessage</p>
+</DialogComponent>
+
+<form @onsubmit="NewWindow">
+    <div class="create-form">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" @bind="Name" />
+        </div>
+        <div class="form-group">
+            <label for="quantityOfWindows">Quantity of windows:</label>
+            <input type="number" class="form-control" id="quantityOfWindows" @bind="QuantityOfWindows" />
+        </div>
+        <div class="form-group">
+            <label for="orderName">Order name:</label>
+            <select class="form-control" id="orderName" @bind="SelectedOrderId">
+                @foreach (var order in Orders)
+                {
+                    <option value="@order.Id">@order.Name</option>
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        
+    </div>
+
+</form>

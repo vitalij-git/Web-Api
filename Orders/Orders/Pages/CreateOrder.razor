@@ -1,0 +1,62 @@
+﻿@page "/createorder"
+@using Orders.Models;
+@using System.Text.Json;
+@using System.Text;
+@using Orders.Shared;
+<link rel="stylesheet" href="css/CreateForm.css">
+<h3>Create Order</h3>
+@inject HttpClient HttpClient
+
+
+@code {
+    private string Name { get; set; }
+    private string State { get; set; }
+    private DialogComponent _dialog;
+    private string dialogMessage = "";
+
+    private async void NewOrder()
+    {
+      
+            var formData = new NewOrder { Name = Name, State = State };
+            var json = JsonSerializer.Serialize(formData);
+
+            var url = "https://localhost:7286/Order";
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await HttpClient.PostAsync(url, content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                ShowDialog("The Order was successfully added");
+            }
+            else
+            {
+                ShowDialog("The Order is not added, something with response");
+            }
+    }
+
+    private async Task ShowDialog(string message)
+    {
+        dialogMessage = message;
+
+        _dialog.Show();
+    }
+}
+}
+<DialogComponent @ref="_dialog" Title="Dialog Title">
+    <p>@dialogMessage</p>
+</DialogComponent>
+
+<form @onsubmit="NewOrder" >
+    <div class="create-form">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" @bind="Name" />
+        </div>
+        <div class="form-group">
+            <label for="state">State:</label>
+            <input type="text" class="form-control" id="state" @bind="State" />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    
+</form>

@@ -1,0 +1,11 @@
+﻿    body {
+    }
+    .create-form{
+        max-width:200px;
+    }
+    .create-form button {
+        margin-top: 20px;
+    }
+    .create-form label {
+        margin: 3px;
+    }

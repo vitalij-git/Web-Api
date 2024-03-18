@@ -1,0 +1,105 @@
+﻿@page "/windowsdata"
+@using Orders.Models;
+@using System.Text.Json;
+@using Orders.Shared;
+<link rel="stylesheet" href="css/Table.css">
+@inject HttpClient HttpClient
+<PageTitle>Windows</PageTitle>
+
+
+<h3>Windows Data</h3>
+
+@code {
+    private IList<Window> Windows;
+    private DialogComponent _dialog;
+    private string dialogMessage = "";
+    private int _itemId;
+    private DeleteConfirmationDialog _deleteConfirmationDialog;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await HttpClient.GetAsync("https://localhost:7286/Window/Windows");
+
+        if (response.IsSuccessStatusCode)
+        {
+            using (var stream = await response.Content.ReadAsStreamAsync())
+            {
+                Windows = await JsonSerializer.DeserializeAsync<IList<Window>>(stream);
+            }
+        }
+    }
+
+    private async Task ShowDialog(string message)
+    {
+        dialogMessage = message;
+
+        _dialog.Show();
+    }
+
+    private async Task DeleteRow(int itemId)
+    {
+        _itemId = itemId;
+        _deleteConfirmationDialog.Show();
+
+    }
+
+    private async Task DeleteConfirmed(bool confirmed, int itemId)
+    {
+        if (confirmed)
+        {
+            HttpClient.DefaultRequestHeaders.Add("windowId", itemId.ToString());
+            var response = await HttpClient.DeleteAsync("https://localhost:7286/Window");
+            if (response.IsSuccessStatusCode)
+            {
+                ShowDialog("The Window was deleted");
+
+            }
+            else
+            {
+                ShowDialog("The Window is not deleted, something with connection");
+            }
+
+        }
+    }
+}
+
+<DialogComponent @ref="_dialog" Title="Dialog Title">
+    <p>@dialogMessage</p>
+</DialogComponent>
+
+<DialogComponent @ref="_dialog" Title="Dialog Title">
+    <p>@dialogMessage</p>
+</DialogComponent>
+
+<DeleteConfirmationDialog @ref="_deleteConfirmationDialog"
+                          Title="Confirm Delete"
+                          Message="Are you sure you want to delete this item?"
+                          OnDeleteConfirmed="@(confirmed => DeleteConfirmed(confirmed, _itemId))">
+</DeleteConfirmationDialog>
+
+@if (Windows != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Quantity of windows</th>
+                <th>Total elements</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Windows)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.QuantityOfWindows</td>
+                    <td>@item.TotalSubElements</td>
+                    <td>
+                        <button class="button-delete" @onclick="() => DeleteRow(item.Id)">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

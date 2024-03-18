@@ -1,0 +1,51 @@
+﻿
+<div class="modal" style="display: @(_show ? "block" : "none")">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">@Title</h5>
+                <button type="button" class="close" @onclick="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>@Message</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" @onclick="Cancel">Cancel</button>
+                <button type="button" class="btn btn-danger" @onclick="ConfirmDelete">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Title { get; set; }
+    [Parameter] public string Message { get; set; }
+    [Parameter] public EventCallback<bool> OnDeleteConfirmed { get; set; }
+
+    private bool _show;
+
+
+    public void Show()
+    {
+
+        _show = true;
+        StateHasChanged();
+    }
+
+    public void Close()
+    {
+        _show = false;
+        StateHasChanged();
+    }
+
+    private async Task ConfirmDelete()
+    {
+        await OnDeleteConfirmed.InvokeAsync(true);
+        Close();
+    }
+
+    private void Cancel()
+    {
+        Close();
+    }
+}

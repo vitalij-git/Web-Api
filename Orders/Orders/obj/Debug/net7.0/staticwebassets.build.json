@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RovzBCk4O7kPQ4HVa7xZeVw+mL70Q20YWQ5rMH6aKiA=",
+  "Hash": "Zy47o418zSNq30NQPYhmOXjhW2EDVUfuwo9/UjvQ2eE=",
   "Source": "Orders",
   "BasePath": "/",
   "Mode": "Root",
@@ -6902,6 +6902,23 @@
       "OriginalItemSpec": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Orders.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\wwwroot\\app.js",
+      "SourceId": "Orders",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "app.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\app.js"
+    },
+    {
       "Identity": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\wwwroot\\css\\app.css",
       "SourceId": "Orders",
       "SourceType": "Discovered",
@@ -6951,6 +6968,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Identity": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\wwwroot\\css\\CreateForm.css",
+      "SourceId": "Orders",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "css/CreateForm.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\CreateForm.css"
+    },
+    {
+      "Identity": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\wwwroot\\css\\navbar.css",
+      "SourceId": "Orders",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "css/navbar.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\navbar.css"
     },
     {
       "Identity": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
@@ -7104,6 +7155,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
+    },
+    {
+      "Identity": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\wwwroot\\css\\Table.css",
+      "SourceId": "Orders",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "css/Table.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Table.css"
     },
     {
       "Identity": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\wwwroot\\favicon.png",

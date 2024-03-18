@@ -1,0 +1,106 @@
+﻿@page "/elementsdata"
+@using Orders.Models;
+@using System.Text.Json;
+@using Orders.Shared;
+<link rel="stylesheet" href="css/Table.css">
+@inject HttpClient HttpClient
+<h3>Elements Data</h3>
+
+
+<DeleteConfirmationDialog @ref="_deleteConfirmationDialog"
+                          Title="Confirm Delete"
+                          Message="Are you sure you want to delete this item?"
+                          OnDeleteConfirmed="@(confirmed => DeleteConfirmed(confirmed, _itemId))">
+</DeleteConfirmationDialog>
+
+<DialogComponent @ref="_dialog" Title="Dialog Title">
+    <p>@dialogMessage</p>
+</DialogComponent>
+
+@code {
+
+    private IList<SubElement> SubElements;
+    private DialogComponent _dialog;
+    private string dialogMessage = "";
+    private int _itemId;
+    private DeleteConfirmationDialog _deleteConfirmationDialog;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await HttpClient.GetAsync("https://localhost:7286/SubElement/SubElements");
+        if (response.IsSuccessStatusCode)
+        {
+            using (var stream = await response.Content.ReadAsStreamAsync())
+            {
+                SubElements = await JsonSerializer.DeserializeAsync<IList<SubElement>>(stream);
+
+            }
+
+        }
+
+    }
+    private async Task DeleteRow(int itemId)
+    {
+        _itemId = itemId;
+        _deleteConfirmationDialog.Show();
+
+    }
+
+    private async Task DeleteConfirmed(bool confirmed, int itemId)
+    {
+        if (confirmed)
+        {
+            HttpClient.DefaultRequestHeaders.Add("subElementId", itemId.ToString());
+            var response = await HttpClient.DeleteAsync("https://localhost:7286/SubElement");
+            if (response.IsSuccessStatusCode)
+            {
+               ShowDialog("The Elemental was deleted");
+
+            }
+            else
+            {
+                ShowDialog("The Elemental is not deleted, something with response");
+            }
+    
+        }
+    }
+
+    private async Task ShowDialog(string message)
+    {
+        dialogMessage = message;
+
+        _dialog.Show();
+    }
+}
+
+
+
+@if (SubElements != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Element</th>
+                <th>State</th>
+                <th>Width</th>
+                <th>Height</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in SubElements)
+            {
+                <tr class="text-design">
+                    <td>@item.Type</td>
+                    <td>@item.Element</td>
+                    <td>@item.Width</td>
+                    <td>@item.Height</td>
+                    <td>
+                        <button class="button-delete" @onclick="() => DeleteRow(item.Id)">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

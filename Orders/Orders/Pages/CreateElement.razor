@@ -1,0 +1,92 @@
+﻿@page "/createelement"
+@using Orders.Models;
+@using System.Text.Json;
+@using System.Text;
+@using Orders.Shared;
+@inject HttpClient HttpClient
+
+
+<link rel="stylesheet" href="css/CreateForm.css">
+<h3>Create Element</h3>
+
+<DialogComponent @ref="_dialog" Title="Dialog Title">
+    <p>@dialogMessage</p>
+</DialogComponent>
+
+@code {
+    private string Type { get; set; }
+    private int Element { get; set; }
+    private int Width { get; set; }
+    private int Height { get; set; }
+    private int SelectedWindowId { get; set; }
+    private List<Window> Windows { get; set; }
+
+    private DialogComponent _dialog;
+    private string dialogMessage = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        Windows = await HttpClient.GetFromJsonAsync<List<Window>>("https://localhost:7286/Window/Windows");
+    }
+
+    private async void NewElement()
+    {
+        var element = new NewSubElement { Type = Type, Element = Element, Width = Width, Height = Height, WindowId = SelectedWindowId };
+        var json = JsonSerializer.Serialize(element);
+        var url = "https://localhost:7286/SubElement";
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+        var response = await HttpClient.PostAsync(url, content);
+        if (response.IsSuccessStatusCode)
+        {
+            OpenDialog("The Element was successfully added");
+        }
+        else
+        {
+            OpenDialog("The Element is not added, something with response");
+        }
+
+    }
+
+    private async Task OpenDialog(string message)
+    {
+        dialogMessage = message;
+
+        _dialog.Show();
+
+    }
+
+}
+<form @onsubmit="NewElement">
+    <div class="create-form">
+        <div class="form-group">
+            <label for="type">Type:</label>
+            <input type="text" class="form-control" id="type" @bind="Type" />
+        </div>
+        <div class="form-group">
+            <label for="element">Element:</label>
+            <input type="number" class="form-control" id="element" @bind="Element" />
+        </div>
+        <div class="form-group">
+            <label for="width">Width:</label>
+            <input type="number" class="form-control" id="width" @bind="Width" />
+        </div>
+        <div class="form-group">
+            <label for="height">Element:</label>
+            <input type="number" class="form-control" id="height" @bind="Height" />
+        </div>
+        <div class="form-group">
+            <label for="window">Window name:</label>
+            <select class="form-control" id="window" @bind="SelectedWindowId">
+                @foreach (var window in Windows)
+                {
+                    <option value="@window.Id">@window.Name</option>
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </div>
+
+</form>
+

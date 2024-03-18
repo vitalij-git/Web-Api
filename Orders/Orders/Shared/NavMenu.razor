@@ -1,4 +1,6 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">Orders</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -15,20 +17,58 @@
             </NavLink>
         </div>
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
+            <NavLink class="nav-link" href="" @onclick="() => orderSubMenu =!orderSubMenu">
+                <span class="oi oi-document" aria-hidden="true"></span> Orders
             </NavLink>
+            @if (orderSubMenu)
+            {
+                <NavLink class="navbar-expand" href="ordersdata">
+                    <span class="oi oi-eye" aria-hidden="true"></span> Show all
+                </NavLink>
+                <NavLink class="navbar-expand" href="createorder">
+                    <span class="oi oi-plus" aria-hidden="true"></span> Create 
+                </NavLink>
+            }
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" @onclick="() => windowSubMenu =!windowSubMenu">
+                <span class="oi oi-cart" aria-hidden="true"></span> Windows
+            </NavLink>
+            @if (windowSubMenu)
+            {
+                <NavLink class="navbar-expand" href="windowsdata">
+                    <span class="oi oi-eye" aria-hidden="true"></span> Show all
+                </NavLink>
+                <NavLink class="navbar-expand" href="createwindow">
+                    <span class="oi oi-plus" aria-hidden="true"></span> Create 
+                </NavLink> 
+            }
         </div>
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
+            <NavLink class="nav-link" href="" @onclick="() => elementSubMenu =!elementSubMenu">
+                <span class="oi oi-list" aria-hidden="true"></span> Elements
             </NavLink>
+            @if (elementSubMenu)
+            {
+                <NavLink class="navbar-expand" href="elementsdata">
+                    <span class="oi oi-eye" aria-hidden="true"></span> Show all
+                </NavLink>
+                <NavLink class="navbar-expand" href="createelement">
+                    <span class="oi oi-plus" aria-hidden="true"></span> Create 
+                </NavLink>
+            }
         </div>
+
     </nav>
 </div>
 
+
 @code {
     private bool collapseNavMenu = true;
+    private bool orderSubMenu;
+    private bool windowSubMenu;
+    private bool elementSubMenu;
 
     private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
@@ -36,4 +76,7 @@
     {
         collapseNavMenu = !collapseNavMenu;
     }
+
+
+   
 }

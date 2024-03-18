@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets\\Orders.styles.css"
     },
     {
+      "Id": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\wwwroot\\app.js",
+      "PackagePath": "staticwebassets\\app.js"
+    },
+    {
+      "Id": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\wwwroot\\css\\CreateForm.css",
+      "PackagePath": "staticwebassets\\css\\CreateForm.css"
+    },
+    {
+      "Id": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\wwwroot\\css\\Table.css",
+      "PackagePath": "staticwebassets\\css\\Table.css"
+    },
+    {
       "Id": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },
@@ -23,6 +35,10 @@
     {
       "Id": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\wwwroot\\css\\navbar.css",
+      "PackagePath": "staticwebassets\\css\\navbar.css"
     },
     {
       "Id": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
