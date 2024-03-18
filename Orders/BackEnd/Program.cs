@@ -2,6 +2,7 @@
 using BackEnd.Database;
 using BackEnd.Repository;
 using BackEnd.Services;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 
 namespace BackEnd
@@ -45,6 +46,14 @@ namespace BackEnd
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
+
+            //Exeption handle
+            app.UseExceptionHandler(eh => eh.Run(async context =>
+            {
+                var exception = context.Features.Get<IExceptionHandlerFeature>().Error;
+                var response = new { error = exception.Message };
+                await context.Response.WriteAsJsonAsync(response);
+            }));
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

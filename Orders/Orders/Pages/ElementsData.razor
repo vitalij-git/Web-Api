@@ -3,6 +3,7 @@
 @using System.Text.Json;
 @using Orders.Shared;
 <link rel="stylesheet" href="css/Table.css">
+@inject IJSRuntime JSRuntime
 @inject HttpClient HttpClient
 <h3>Elements Data</h3>
 
@@ -54,12 +55,16 @@
             var response = await HttpClient.DeleteAsync("https://localhost:7286/SubElement");
             if (response.IsSuccessStatusCode)
             {
-               ShowDialog("The Elemental was deleted");
-
+                ShowDialog("The Elemental was deleted");
+                var item = SubElements.First(s => s.Id == itemId);
+                SubElements.Remove(item);
+                StateHasChanged();
             }
             else
             {
-                ShowDialog("The Elemental is not deleted, something with response");
+                var errorResponse = await response.Content.ReadAsStringAsync();
+                var erroMessage = JsonSerializer.Deserialize<ErrorResponse>(errorResponse);
+                ShowDialog(erroMessage.ErrorMessage);
             }
     
         }
@@ -75,7 +80,7 @@
 
 
 
-@if (SubElements != null)
+@if (SubElements != null && SubElements.Count != 0)
 {
     <table class="table">
         <thead>
@@ -103,4 +108,9 @@
         </tbody>
     </table>
 }
-
+else
+{
+    <div class="empty-message">
+        <p>No elements found.</p>
+    </div>
+}

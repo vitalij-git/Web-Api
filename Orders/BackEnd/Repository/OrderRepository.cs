@@ -15,6 +15,7 @@ namespace BackEnd.Repository
 
         public async Task CreateOrder(Order order)
         {
+
             _connection.Orders.Add(order);
             await _connection.SaveChangesAsync();
         }
@@ -27,6 +28,7 @@ namespace BackEnd.Repository
                 _connection.Orders.Remove(request);
                 await _connection.SaveChangesAsync();
             }
+            
         }
 
         public async Task<Order> GetOrder(int orderId)

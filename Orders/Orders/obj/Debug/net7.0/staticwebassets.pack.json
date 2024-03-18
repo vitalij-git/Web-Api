@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\css\\CreateForm.css"
     },
     {
+      "Id": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\wwwroot\\css\\Images\\nature.jpg",
+      "PackagePath": "staticwebassets\\css\\Images\\nature.jpg"
+    },
+    {
       "Id": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\wwwroot\\css\\Table.css",
       "PackagePath": "staticwebassets\\css\\Table.css"
     },

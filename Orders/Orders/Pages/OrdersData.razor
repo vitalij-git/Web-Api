@@ -51,20 +51,21 @@
             if (response.IsSuccessStatusCode)
             {
                 ShowDialog("The Order was deleted");
-
+                var item = OrdersList.First(o => o.Id == itemId);
+                OrdersList.Remove(item);
+                StateHasChanged();
             }
             else
             {
-                ShowDialog("The Order is not deleted, something with response");
+                var errorResponse = await response.Content.ReadAsStringAsync();
+                var erroMessage = JsonSerializer.Deserialize<ErrorResponse>(errorResponse);
+                ShowDialog(erroMessage.ErrorMessage);
             }
 
         }
     }
 }
 
-<DialogComponent @ref="_dialog" Title="Dialog Title">
-    <p>@dialogMessage</p>
-</DialogComponent>
 
 <DialogComponent @ref="_dialog" Title="Dialog Title">
     <p>@dialogMessage</p>
@@ -76,7 +77,7 @@
                           OnDeleteConfirmed="@(confirmed => DeleteConfirmed(confirmed, _itemId))">
 </DeleteConfirmationDialog>
 
-@if (OrdersList != null)
+@if (OrdersList != null && OrdersList.Count != 0)
 {
     <table class="table">
         <thead>
@@ -100,5 +101,10 @@
         </tbody>
     </table>
 }
-
+else
+{
+    <div class="empty-message">
+        <p>No orders found.</p>
+    </div>
+}
 

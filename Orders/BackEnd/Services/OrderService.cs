@@ -1,7 +1,9 @@
-﻿using BackEnd.Models;
+﻿using BackEnd.ErrorResponseModel;
+using BackEnd.Models;
 using BackEnd.Models.Dto;
 using BackEnd.Models.Dto.Orders;
 using BackEnd.Repository;
+using System.Net;
 
 namespace BackEnd.Services
 {
@@ -16,22 +18,45 @@ namespace BackEnd.Services
 
         public async Task CreateOrder(OrderDto orderDto)
         {
-            Order order = new Order()
+            if (string.IsNullOrEmpty(orderDto.Name))
             {
-                State = orderDto.State,
-                Name = orderDto.Name,
-            };
-            await _orderRepository.CreateOrder(order);
+                throw new HttpStatusException(HttpStatusCode.BadRequest, "Name cannot be empty");
+            }
+            else if(string.IsNullOrEmpty(orderDto.State))
+            {
+                throw new HttpStatusException(HttpStatusCode.BadRequest, "State cannot be empty");
+            }
+            else
+            {
+                Order order = new Order()
+                {
+                    State = orderDto.State,
+                    Name = orderDto.Name,
+                };
+                await _orderRepository.CreateOrder(order);
+            }
+
         }
 
         public async Task DeleteOrder(int orderId)
         {
-            await _orderRepository.DeleteOrder(orderId);    
+            if(orderId == null || orderId == 0) 
+            {
+                throw new HttpStatusException(HttpStatusCode.BadRequest, "Id cannot be null or zero");
+
+            }
+                await _orderRepository.DeleteOrder(orderId);
+
         }
 
         public async Task<Order> GetOrder(int orderId)
         {
-            return await _orderRepository.GetOrder(orderId);  
+            if(orderId == null || orderId == 0)
+            {
+                throw new HttpStatusException(HttpStatusCode.BadRequest, "Id cannot be null or zero");
+                
+            }
+                return await _orderRepository.GetOrder(orderId);    
         }
 
         public async Task<IList<Order>> GetOrders()

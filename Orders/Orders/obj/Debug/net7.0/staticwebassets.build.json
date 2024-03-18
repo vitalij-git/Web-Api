@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Zy47o418zSNq30NQPYhmOXjhW2EDVUfuwo9/UjvQ2eE=",
+  "Hash": "SizuoiZIK3NnyQBetU7/ru6u2z7e+T01tmNCKX9kG/Q=",
   "Source": "Orders",
   "BasePath": "/",
   "Mode": "Root",
@@ -6985,6 +6985,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\CreateForm.css"
+    },
+    {
+      "Identity": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\wwwroot\\css\\Images\\nature.jpg",
+      "SourceId": "Orders",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "css/Images/nature.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Images\\nature.jpg"
     },
     {
       "Identity": "C:\\Users\\Vitalis\\Desktop\\Programavimas\\ApiProjects\\Orders\\Orders\\wwwroot\\css\\navbar.css",

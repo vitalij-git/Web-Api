@@ -32,10 +32,15 @@
         if (response.IsSuccessStatusCode)
         {
             ShowDialog("The Window was successfully added");
+            Name = "";
+            QuantityOfWindows = 0;
+            StateHasChanged();
         }
         else
         {
-            ShowDialog("The Window is not added, something with response");
+            var errorResponse = await response.Content.ReadAsStringAsync();
+            var erroMessage = JsonSerializer.Deserialize<ErrorResponse>(errorResponse);
+            ShowDialog(erroMessage.ErrorMessage);
         }
       
     }

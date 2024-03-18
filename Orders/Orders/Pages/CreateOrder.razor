@@ -8,6 +8,7 @@
 @inject HttpClient HttpClient
 
 
+
 @code {
     private string Name { get; set; }
     private string State { get; set; }
@@ -16,22 +17,28 @@
 
     private async void NewOrder()
     {
-      
-            var formData = new NewOrder { Name = Name, State = State };
-            var json = JsonSerializer.Serialize(formData);
 
-            var url = "https://localhost:7286/Order";
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await HttpClient.PostAsync(url, content);
+        var formData = new NewOrder { Name = Name, State = State };
+        var json = JsonSerializer.Serialize(formData);
 
-            if (response.IsSuccessStatusCode)
-            {
-                ShowDialog("The Order was successfully added");
-            }
-            else
-            {
-                ShowDialog("The Order is not added, something with response");
-            }
+        var url = "https://localhost:7286/Order";
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
+        var response = await HttpClient.PostAsync(url, content);
+
+        if (response.IsSuccessStatusCode)
+        {
+            ShowDialog("Order created successfully");
+            Name = "";
+            State = "";
+            StateHasChanged();
+        }
+        else
+        {
+            var errorResponse = await response.Content.ReadAsStringAsync();
+            var erroMessage = JsonSerializer.Deserialize<ErrorResponse>(errorResponse);
+            ShowDialog(erroMessage.ErrorMessage);
+
+        }
     }
 
     private async Task ShowDialog(string message)
@@ -41,7 +48,7 @@
         _dialog.Show();
     }
 }
-}
+
 <DialogComponent @ref="_dialog" Title="Dialog Title">
     <p>@dialogMessage</p>
 </DialogComponent>

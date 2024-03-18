@@ -4,7 +4,7 @@
 @using System.Text;
 @using Orders.Shared;
 @inject HttpClient HttpClient
-
+@inject IJSRuntime JSRuntime
 
 <link rel="stylesheet" href="css/CreateForm.css">
 <h3>Create Element</h3>
@@ -39,16 +39,24 @@
         var response = await HttpClient.PostAsync(url, content);
         if (response.IsSuccessStatusCode)
         {
-            OpenDialog("The Element was successfully added");
+            ShowDialog("The Element was successfully added");
+            Type = "";
+            Element = 0;
+            Width = 0;
+            Height = 0;
+            StateHasChanged();
+            
         }
         else
         {
-            OpenDialog("The Element is not added, something with response");
+            var errorResponse = await response.Content.ReadAsStringAsync();
+            var erroMessage = JsonSerializer.Deserialize<ErrorResponse>(errorResponse);
+            ShowDialog(erroMessage.ErrorMessage);
         }
 
     }
 
-    private async Task OpenDialog(string message)
+    private async Task ShowDialog(string message)
     {
         dialogMessage = message;
 
