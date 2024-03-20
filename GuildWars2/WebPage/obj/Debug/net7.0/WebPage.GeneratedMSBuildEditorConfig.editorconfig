@@ -1,0 +1,53 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = WebPage
+build_property.RootNamespace = WebPage
+build_property.ProjectDir = C:\Users\Vitalis\Desktop\Programavimas\ApiProjects\GuildWars2\WebPage\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Vitalis\Desktop\Programavimas\ApiProjects\GuildWars2\WebPage
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Vitalis/Desktop/Programavimas/ApiProjects/GuildWars2/WebPage/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vitalis/Desktop/Programavimas/ApiProjects/GuildWars2/WebPage/Pages/Account/Test.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxUZXN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vitalis/Desktop/Programavimas/ApiProjects/GuildWars2/WebPage/Pages/Account/Wallet.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxXYWxsZXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vitalis/Desktop/Programavimas/ApiProjects/GuildWars2/WebPage/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vitalis/Desktop/Programavimas/ApiProjects/GuildWars2/WebPage/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vitalis/Desktop/Programavimas/ApiProjects/GuildWars2/WebPage/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Vitalis/Desktop/Programavimas/ApiProjects/GuildWars2/WebPage/Pages/Account/Character/CharacterMain.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxDaGFyYWN0ZXJcQ2hhcmFjdGVyTWFpbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-y8kz0cjxe4
+
+[C:/Users/Vitalis/Desktop/Programavimas/ApiProjects/GuildWars2/WebPage/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-5v4lpc946w
+
+[C:/Users/Vitalis/Desktop/Programavimas/ApiProjects/GuildWars2/WebPage/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-wizkhbxtxk

@@ -1,0 +1,130 @@
+﻿@page "/wallet"
+@using System.Text.Json;
+@using WebPage.Models.Account.Wallet;
+@using WebPage.wwwroot.Models.Account;
+@inject IJSRuntime JSRuntime
+@inject HttpClient HttpClient
+<link rel="stylesheet" href="/css/Account/Wallet.css">
+
+
+
+@code {
+    public List<WalletData> WalletDatas = new List<WalletData>();
+    public List<CurrenciesData> CurrenciesDatas = new List<CurrenciesData>();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        WalletDatas = await GetWalletData();
+        CurrenciesDatas = await GetCurrencyData();
+    }
+    private async Task<List<WalletData>> GetWalletData()
+    {
+        var result = new List<WalletData>();
+        var response = await HttpClient.GetAsync("https://localhost:7144/GW2/Data?data=v2/account/wallet");
+        if (response.IsSuccessStatusCode)
+        {
+            using (var stream = await response.Content.ReadAsStreamAsync())
+            {
+
+                result = await JsonSerializer.DeserializeAsync<List<WalletData>>(stream);
+
+            }
+            return result;
+        }
+
+        return null;
+    }
+    private async Task<List<CurrenciesData>> GetCurrencyData()
+    {
+        var result = new List<CurrenciesData>();
+        var response = await HttpClient.GetAsync("https://api.guildwars2.com/v2/currencies?ids=all");
+        if (response.IsSuccessStatusCode)
+        {
+            using (var stream = await response.Content.ReadAsStreamAsync())
+            {
+
+                result = await JsonSerializer.DeserializeAsync<List<CurrenciesData>>(stream);
+
+            }
+            return result;
+        }
+        return null;
+    }
+    private int CalculateGold(int currencies)
+    {
+        return currencies / 10000;
+    }
+    private int CalculateSilver(int currencies)
+    {
+        return (currencies % 10000) / 100;
+    }
+    private int CalculateCopper(int currencies)
+    {
+        return currencies % 100;
+    }
+    private int GetWalletValue(int id)
+    {
+        var result = WalletDatas.FirstOrDefault(w => w.id == id);
+        if (result == null)
+        {
+            Console.WriteLine("nera id" + result);
+            return 0;
+        };
+        return result.value;
+    }
+
+
+}
+@if (CurrenciesDatas.Count > 0 && WalletDatas.Count > 0)
+{
+    <div class="wallet-container">
+        <h1>Wallet</h1>
+        <table >
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Currency</th>
+                    <th>Quantity</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var currencie in CurrenciesDatas)
+                {
+                    <tr>
+                        <td><img src="@currencie.icon" alt="@currencie.name" class="currency-icon" height="35px" /></td>
+                        <td>
+                            <div><b>@currencie.name</b></div>
+                            <div class="currency-description">@currencie.description</div>
+                        </td>
+                        <td>
+                            @if (currencie.id == 1)
+                            {
+                                <div class="quantity-block">
+                                    <span>@CalculateGold(@GetWalletValue(currencie.id))</span><i><img src="@currencie.icon" alt="@currencie.name" height="17px" class="quantity-icon" /></i>
+                                    <span>@CalculateSilver(@GetWalletValue(currencie.id))</span><img src="https://wiki.guildwars2.com/images/3/3c/Silver_coin.png" alt="silver" height="17px" class="quantity-icon" />
+                                    <span>@CalculateCopper(@GetWalletValue(currencie.id))</span><img src="https://wiki.guildwars2.com/images/e/eb/Copper_coin.png" alt="copper" height="17px" class="quantity-icon" />
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="quantity-block">
+                                    <span>@GetWalletValue(currencie.id)</span><i><img src="@currencie.icon" alt="@currencie.name" height="17px" class="quantity-icon" /></i>
+                                </div>
+                            }
+                        </td>
+                        <td></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    Console.WriteLine(CurrenciesDatas.Count);
+    Console.WriteLine(WalletDatas.Count);
+}
+
+    

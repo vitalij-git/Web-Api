@@ -1,0 +1,33 @@
+﻿.wallet-container {
+    max-width: 720px;
+    margin: auto
+}
+
+tr.underline-row, td, th {
+    border-bottom: 2px solid black;
+}
+
+.wallet-container h1 {
+    text-align: center;
+}
+
+.wallet-container td {
+    padding: 1%;
+}
+
+.currency-icon {
+    margin: 5px;
+}
+
+.quantity-icon {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.quantity-block {
+    display: flex;
+}
+
+.wallet-container th {
+    text-align: left;
+}

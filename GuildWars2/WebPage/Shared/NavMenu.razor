@@ -1,0 +1,83 @@
+﻿@using System.Text.Json;
+@inject HttpClient HttpClient
+<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">WebPage</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" @onclick="() => AccountSubMenu =!AccountSubMenu">
+                <span class="oi oi-document" aria-hidden="true"></span> Account
+            </NavLink>
+            @if (AccountSubMenu)
+            {
+                <NavLink class="navbar-expand" href="wallet">
+                    <span class="oi oi-eye" aria-hidden="true"></span> Wallet
+                </NavLink>
+                <NavLink class="nav-link" href="" @onclick="() => CharactersSubMenu =!CharactersSubMenu">
+                    <span class="oi oi-document" aria-hidden="true"></span> Characters
+                </NavLink>
+                if (CharactersSubMenu)
+                {
+                    if (Characters != null)
+                    {
+                        foreach (var character in Characters)
+                        {
+                            var link = "charactermain?name=" + character;
+                           <NavLink class="navbar-expand" href=@link>
+                            <span class="oi oi-eye" aria-hidden="true"></span> @character
+                            </NavLink>
+                        }
+                    }
+                  
+                }
+            }
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="test" >
+                <span class="oi oi-home" aria-hidden="true"></span> Test
+            </NavLink>
+        </div>
+    </nav>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+    private bool AccountSubMenu;
+    private bool CharactersSubMenu;
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private List<string> Characters = new List<string>();
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+            var response = await HttpClient.GetAsync("https://localhost:7144/GW2/Data?data=v2/characters");
+            if (response.IsSuccessStatusCode)
+            {
+
+                using (var stream = await response.Content.ReadAsStreamAsync())
+                {
+
+                    Characters = await JsonSerializer.DeserializeAsync<List<string>>(stream);
+
+                }
+
+            }
+    
+    }
+}

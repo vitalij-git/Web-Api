@@ -4,10 +4,11 @@ namespace UVS
 {
     public class Program
     {
-        static void Main(string[] args)
-        {
-            ConsoleController controller = new ConsoleController();
-            controller.Menu();
-        }
+        //static void Main(string[] args)
+        //{
+        //    ConsoleController controller = new ConsoleController();
+        //    controller.Menu();
+        //}
+
     }
 }
