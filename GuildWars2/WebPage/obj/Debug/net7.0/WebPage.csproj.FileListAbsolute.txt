@@ -827,3 +827,4 @@ C:\Users\Vitalis\Desktop\Programavimas\ApiProjects\GuildWars2\WebPage\obj\Debug\
 C:\Users\Vitalis\Desktop\Programavimas\ApiProjects\GuildWars2\WebPage\obj\Debug\net7.0\WebPage.pdb
 C:\Users\Vitalis\Desktop\Programavimas\ApiProjects\GuildWars2\WebPage\obj\Debug\net7.0\ref\WebPage.dll
 C:\Users\Vitalis\Desktop\Programavimas\ApiProjects\GuildWars2\WebPage\obj\Debug\net7.0\scopedcss\Pages\Account\Character\CharacterMain.razor.rz.scp.css
+C:\Users\Vitalis\Desktop\Programavimas\ApiProjects\GuildWars2\WebPage\obj\Debug\net7.0\scopedcss\Pages\Account\Bank.razor.rz.scp.css

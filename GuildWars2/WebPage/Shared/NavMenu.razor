@@ -1,5 +1,7 @@
 ﻿@using System.Text.Json;
-@inject HttpClient HttpClient
+@using WebPage.Services;
+@inject HttpClientService HttpClientService
+
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">WebPage</a>
@@ -45,7 +47,12 @@
             }
         </div>
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="test" >
+            <NavLink class="nav-link" href="bank" >
+                <span class="oi oi-home" aria-hidden="true"></span> Bank
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="test">
                 <span class="oi oi-home" aria-hidden="true"></span> Test
             </NavLink>
         </div>
@@ -66,8 +73,10 @@
 
     protected override async Task OnParametersSetAsync()
     {
-            var response = await HttpClient.GetAsync("https://localhost:7144/GW2/Data?data=v2/characters");
-            if (response.IsSuccessStatusCode)
+        
+        //var response = await HttpClient.GetAsync("https://localhost:7144/GW2/Data?data=v2/characters");
+        var response = await HttpClientService.GetResponseMessageAsync("v2/characters");
+        if (response.IsSuccessStatusCode)
             {
 
                 using (var stream = await response.Content.ReadAsStreamAsync())

@@ -2,8 +2,8 @@
 {
     public class CharacterBag
     {
-        public int id { get; set; }
-        public int size { get; set; }
+        public int? id { get; set; }
+        public int? size { get; set; }
         public List<CharacterInventory> inventory { get; set; }
     }
 }

@@ -1,9 +1,11 @@
 ﻿@page "/wallet"
 @using System.Text.Json;
 @using WebPage.Models.Account.Wallet;
+@using WebPage.Services;
 @using WebPage.wwwroot.Models.Account;
 @inject IJSRuntime JSRuntime
 @inject HttpClient HttpClient
+@inject HttpClientService HttpClientService
 <link rel="stylesheet" href="/css/Account/Wallet.css">
 
 
@@ -21,7 +23,7 @@
     private async Task<List<WalletData>> GetWalletData()
     {
         var result = new List<WalletData>();
-        var response = await HttpClient.GetAsync("https://localhost:7144/GW2/Data?data=v2/account/wallet");
+        var response = await HttpClientService.GetResponseMessageAsync("v2/account/wallet");
         if (response.IsSuccessStatusCode)
         {
             using (var stream = await response.Content.ReadAsStreamAsync())

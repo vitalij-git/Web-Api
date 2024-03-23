@@ -2,16 +2,20 @@
 @using System.Text.Json;
 @using System.Reflection.Metadata;
 @using WebPage.Models.Account.Character.CharacterBag;
+@using WebPage.Models.Account.Character.Equipment;
+@using WebPage.Models.Account;
+@using WebPage.Services;
 @inject NavigationManager NavigationManager
 @inject HttpClient HttpClient
-
+@inject HttpClientService HttpClientService
 @code {
     private string CharacterName = "";
-    private List<CharacterBagMain> characterMainBags = new List<CharacterBagMain>();
+    private CharacterBagMain CharacterMainBags;
+    private CharacterEquipment CharacterEquipment;
     private string visibleSection = "equipment";
     private bool collapseNavMenu = true;
     private string? CharacterMainCssClass => collapseNavMenu ? "collapse" : null;
-
+    private ItemData ItemData = new ItemData();
 
     private void ShowSection(string section)
     {
@@ -22,7 +26,7 @@
     protected override  void OnInitialized()
     {
         NavigationManager.LocationChanged += OnCharacterNameChanged;
-        
+
     }
 
     protected override void OnAfterRender(bool render)
@@ -34,7 +38,7 @@
 
             var queryString = System.Web.HttpUtility.ParseQueryString(uriParams);
             CharacterName = queryString["name"];
-            GetCharacter();
+
             StateHasChanged();
         }
 
@@ -45,7 +49,7 @@
         var uriParams = new Uri(args.Location).Query;
         var queryString = System.Web.HttpUtility.ParseQueryString(uriParams);
         CharacterName = queryString["name"];
-        GetCharacter();
+        GetCharacterInventory();
         StateHasChanged();
     }
 
@@ -56,23 +60,103 @@
     }
 
 
-    private async Task GetCharacter()
-    {
-        var response = await HttpClient.GetAsync($"https://localhost:7144/GW2/Data?data=v2/characters/{CharacterName}/inventory");
-        if (response.IsSuccessStatusCode)
-        {
-            using (var stream = await response.Content.ReadAsStreamAsync())
-            {
-
-                characterMainBags = await JsonSerializer.DeserializeAsync<List<CharacterBagMain>>(stream);
-                Console.WriteLine(characterMainBags.Count);
-            }
-        }
-    }
-
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+    }
+
+    private async Task GetCharacterInventory()
+    {
+        var data = $"v2/characters/{CharacterName}/inventory";
+        var response = await HttpClientService.GetResponseMessageAsync(data);
+        if (response.IsSuccessStatusCode)
+        {
+            CharacterMainBags = await InventoryDeserializeJsonAsync(response);
+            StateHasChanged();
+        }
+    }
+
+    private async Task<CharacterBagMain> InventoryDeserializeJsonAsync(HttpResponseMessage response)
+    {
+        using (var stream = await response.Content.ReadAsStreamAsync())
+        {
+            try
+            {
+                return  await JsonSerializer.DeserializeAsync<CharacterBagMain>(stream);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+        }
+
+        return null;
+    }
+
+    private async Task GetInventoryItemAsync(int itemId)
+    { 
+        try
+        {
+            var url = "https://api.guildwars2.com/v2/items/" + itemId;
+            var response = await HttpClient.GetAsync(url);
+
+            ItemData = await ItemDeserializeJsonAsync(response);
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+    }
+
+    private async Task<ItemData> ItemDeserializeJsonAsync(HttpResponseMessage response)
+    {
+        using (var stream = await response.Content.ReadAsStreamAsync())
+        {
+            try
+            {
+                return await JsonSerializer.DeserializeAsync<ItemData>(stream);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+        }
+        return null;
+    }
+
+    private async Task GetCharacterEquipment()
+    {
+        var data = $"v2/characters/{CharacterName}/equipment";
+        var response = await HttpClientService.GetResponseMessageAsync(data);
+        if (response.IsSuccessStatusCode)
+        {
+            CharacterEquipment = await EquipmentDeserializeJsonAsync(response);
+            //StateHasChanged();
+        }
+    }
+
+    private async Task<CharacterEquipment> EquipmentDeserializeJsonAsync(HttpResponseMessage response)
+    {
+        using (var stream = await response.Content.ReadAsStreamAsync())
+        {
+            try
+            {
+                return await JsonSerializer.DeserializeAsync<CharacterEquipment>(stream);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+        }
+
+        return null;
     }
 }
 
@@ -81,12 +165,12 @@
     <div class="@CharacterMainCssClass nav-scrollable" @onclick="ToggleNavMenu">
         <nav class="flex-column">
             <div class="nav-item px-3">
-                <NavLink class="nav-link"  @onclick='() => ShowSection("equipment")'>
+                <NavLink class="nav-link" @onclick='() => {ShowSection("equipment");GetCharacterEquipment();}'>
                     <span class="oi oi-wrench" aria-hidden="true"></span> Equipment
                 </NavLink>
             </div>
             <div class="nav-item px-3">
-                <NavLink class="nav-link"  @onclick='() => ShowSection("equipment")'>
+                <NavLink class="nav-link" @onclick='() => {ShowSection("inventory"); GetCharacterInventory();}'>
                     <span class="oi oi-box" aria-hidden="true"></span> Inventory
                 </NavLink>
             </div>
@@ -102,16 +186,45 @@
             </div>
         </nav>
     </div>
-    <div class="container mt-3">
+    <div class="right-container mt-3">
         <div id="equipment" style="@(visibleSection == "equipment" ? "display: block;" : "display: none;")">
             <!-- Content for Section 1 -->
             <h2>Section 1</h2>
             <p>This is the content for Section 1.</p>
         </div>
         <div id="inventory" style="@(visibleSection == "inventory" ? "display: block;" : "display: none;")">
-            <!-- Content for Section 2 -->
-            <h2>Section 2</h2>
-            <p>This is the content for Section 2.</p>
+               <h4>Inventory</h4>
+               <div class="inventory-container">
+                    @if(CharacterMainBags != null)
+                {
+                        
+                        foreach (var bag in CharacterMainBags.bags)
+                        {
+                            foreach(var item in bag.inventory)
+                            {
+                                if(item != null)
+                                {
+
+                                        <div class="inventory-block">
+                                        <span class="inventory-text">@item.count</span>
+                                        </div>  
+                                }
+                                else
+                                {
+
+                                    <div class="inventory-block">
+                                        <span class="empty-inventory-slot"></span>
+                                    </div>
+                                    
+                                }
+                            }
+                           
+                        }
+                    }
+                    else{
+                        <span>empty</span>
+                    }
+               </div>
         </div>
         <div id="build" style="@(visibleSection == "build" ? "display: block;" : "display: none;")">
             <!-- Content for Section 3 -->

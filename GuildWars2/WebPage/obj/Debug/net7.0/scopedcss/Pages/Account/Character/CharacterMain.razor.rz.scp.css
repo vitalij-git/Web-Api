@@ -34,7 +34,7 @@ body[b-y8kz0cjxe4] {
     }
 
     .nav-item[b-y8kz0cjxe4]  a {
-        color: #d7d7d7;
+        color: #9e9ea7;
         border-radius: 4px;
         height: 3rem;
         display: flex;
@@ -49,7 +49,8 @@ body[b-y8kz0cjxe4] {
 
         .nav-item[b-y8kz0cjxe4]  a:hover {
             background-color: rgba(255,255,255,0.1);
-            color: white;
+            color: #9353cc;
+            cursor:pointer;
         }
 
 @media (min-width: 641px) {
@@ -70,4 +71,30 @@ body[b-y8kz0cjxe4] {
 }
 .character-container[b-y8kz0cjxe4]{
     display:flex
+}
+
+.inventory-container[b-y8kz0cjxe4]{
+    display:flex;
+    flex-wrap:wrap;
+  
+}
+.inventory-block[b-y8kz0cjxe4] {
+    display: inline-block;
+    width: 52px;
+    height: 52px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    text-align: right;
+}
+.empty-inventory-slot[b-y8kz0cjxe4] {
+    display: inline-block;
+    width: 52px;
+    height: 52px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    background-color: lightgrey;
+}
+
+.right-container[b-y8kz0cjxe4] {
+  max-width:600px;
 }

@@ -1,0 +1,140 @@
+﻿@page "/bank"
+@using System.Text.Json;
+@using System.Collections;
+@using WebPage.Models.Account.Bank;
+@using WebPage.Models.Account;
+@using WebPage.Services;
+@inject HttpClientService HttpClientService
+@inject HttpClient HttpClient
+
+
+
+@code {
+
+    private BankMain BankMain = new BankMain();
+    private List<ItemData> ItemDatas = new List<ItemData>();
+    private ItemData ItemData = new ItemData();
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        await GetBankDataAsync();
+        await GetItemsData();
+    }
+
+    private async Task GetBankDataAsync()
+    {
+        var data = "v2/account/bank";
+        var response = await HttpClientService.GetResponseMessageAsync(data);
+        dynamic bankObject;
+        if (response.IsSuccessStatusCode)
+        {
+            using (var stream = await response.Content.ReadAsStreamAsync())
+            {
+
+                bankObject = await JsonSerializer.DeserializeAsync<dynamic>(stream);
+
+            }
+
+            ConvertBankData(bankObject);
+        }
+
+
+    }
+
+    private void ConvertBankData(dynamic bankObject)
+    {
+        foreach (var obj in bankObject.EnumerateArray())
+        {
+            if (obj.ValueKind != JsonValueKind.Null)
+            {
+                var id = obj.GetProperty("id").GetInt32();
+                var count = obj.GetProperty("count").GetInt32();
+                // var binding = obj.GetProperty("binding").GetString();
+                BankMain.Items.Add(new BankItemInfo
+                    {
+                        id = id,
+                        count = count,
+
+                    });
+
+            }
+            else
+            {
+                BankMain.Items.Add(null);
+            }
+        }
+       
+    }
+
+    private async Task GetItemsData()
+    {
+        if (BankMain.Items.Count > 0)
+        {
+            foreach (var item in BankMain.Items)
+            {
+                if(item != null)
+                {
+                    var url = "https://api.guildwars2.com/v2/items/" + item.id;
+                    var response = await HttpClient.GetAsync(url);
+
+                    ItemData = await ItemDeserializeJsonAsync(response);
+                }
+                ItemDatas.Add(ItemData);
+            }
+            
+        }
+    }
+    private async Task<ItemData> ItemDeserializeJsonAsync(HttpResponseMessage response)
+    {
+        using (var stream = await response.Content.ReadAsStreamAsync())
+        {
+            try
+            {
+                return await JsonSerializer.DeserializeAsync<ItemData>(stream);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+        }
+        return null;
+    }
+}
+
+<div class="title-container">
+    <h3 class="title">Bank</h3>
+</div>
+
+@if(BankMain.Items.Count > 0 && ItemDatas.Count > 0)
+{
+ 
+    <div class="bank-container">
+       
+       @foreach(var bankItem in BankMain.Items)
+        {
+
+                        @if (bankItem != null)
+                        {
+                            var item = ItemDatas.FirstOrDefault(it => it.id == bankItem.id);
+                            <div class="bank-slot">
+                                <img src="@item.icon" alt="@item.name" class="item-image">
+                                <p class="bank-text">@bankItem.count</p>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="empty-bank-slot">
+                                
+                            </div>
+
+                        }                
+        }
+       
+    </div>
+}
+else{
+    <h5>Something with data</h5>
+}

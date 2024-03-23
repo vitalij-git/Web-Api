@@ -2,6 +2,6 @@
 {
     public class CharacterBagMain
     {
-        public List<CharacterBag> bags { get; set; }
+        public List<CharacterBag> bags { get; set; } 
     }
 }
