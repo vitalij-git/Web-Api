@@ -70,10 +70,14 @@
         <div class="form-group">
             <label for="orderName">Order name:</label>
             <select class="form-control" id="orderName" @bind="SelectedOrderId">
-                @foreach (var order in Orders)
+                @if(Orders != null)
                 {
-                    <option value="@order.Id">@order.Name</option>
+                    @foreach (var order in Orders)
+                    {
+                        <option value="@order.Id">@order.Name</option>
+                    }
                 }
+               
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>

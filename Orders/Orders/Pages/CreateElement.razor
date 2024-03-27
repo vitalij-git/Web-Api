@@ -86,9 +86,12 @@
         <div class="form-group">
             <label for="window">Window name:</label>
             <select class="form-control" id="window" @bind="SelectedWindowId">
-                @foreach (var window in Windows)
+                @if(Windows != null)
                 {
-                    <option value="@window.Id">@window.Name</option>
+                    @foreach (var window in Windows)
+                    {
+                        <option value="@window.Id">@window.Name</option>
+                    }
                 }
             </select>
         </div>
